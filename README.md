@@ -21,12 +21,12 @@ Each student needs to add their own profile card to the page. Your card should i
 
 1. Fork this repository
 2. Clone your fork to your computer
-3. Copy the example card from `example-card.html`
-4. Paste it in the marked section in `index.html`
-5. Edit the card with your information
-6. Commit your changes
-7. Push to your fork
-8. Create a pull request
+3. Copy the example card from `challenge.html`
+
+4. Edit the card with your information
+5. Commit your changes
+6. Push to your fork
+7. Create a pull request
 
 ## Rules
 
