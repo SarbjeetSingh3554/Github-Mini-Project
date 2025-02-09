@@ -1,0 +1,235 @@
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --background-color: #0f172a;
+  --text-color: #e2e8f0;
+  --card-background: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(148, 163, 184, 0.1);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --code-bg: #1e293b;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background-color), var(--secondary-color));
+  color: var(--text-color);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-button {
+  display: inline-block;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--card-background);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.guide-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease;
+}
+
+.guide-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #4361ee, #7209b7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.commands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.command-section {
+  background: var(--card-background);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.command-section:hover {
+  transform: translateY(-4px);
+}
+
+.command-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.command-card code {
+  display: block;
+  padding: 1rem;
+  background: var(--code-bg);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.copy-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.command-card:hover .copy-button {
+  opacity: 1;
+}
+
+.difficulty {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.beginner { background: var(--success-color); }
+.intermediate { background: var(--warning-color); }
+.advanced { background: var(--error-color); }
+
+.error-notes {
+  background: rgba(231, 76, 60, 0.1);
+  border-left: 3px solid var(--error-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.tip-notes {
+  background: rgba(46, 204, 113, 0.1);
+  border-left: 3px solid var(--success-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.workflow-section {
+  background: var(--card-background);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.step {
+  background: var(--card-background);
+  border: 1px solid var(--glass-border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step::after {
+  content: '→';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .workflow-steps {
+    flex-direction: column;
+  }
+  
+  .step::after {
+    content: '↓';
+    right: 50%;
+    bottom: -20px;
+    top: auto;
+    transform: translateX(50%);
+  }
+  
+  .command-section {
+    padding: 1.5rem;
+  }
+  
+  .guide-header h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git & GitHub Guide</title>
+    <link rel="stylesheet" href="git-guide.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html" class="back-button">← Back to Workshop</a>
+
+      <header class="guide-header">
+        <h1>Git & GitHub Cheat Sheet</h1>
+        <p class="subtitle">Complete Guide with Examples & Common Issues</p>
+      </header>
+
+      <div class="commands-grid">
+        <div class="command-section">
+          <h2>🚀 Getting Started</h2>
+          <div class="command-card">
+            <span class="difficulty beginner">Beginner</span>
+            <code>git init</code>
+            <button class="copy-button">Copy</button>
+            <p>Initialize a new Git repository</p>
+            <div class="tip-notes">
+              <strong>Tip:</strong> Run this only once at the root of your project
+            </div>
+          </div>
+          <div class="command-card">
+            <span class="difficulty beginner">Beginner</span>
+            <code>git clone https://github.com/username/repo.git</code>
+            <button class="copy-button">Copy</button>
+            <p>Clone a repository from GitHub</p>
+            <div class="tip-notes">
+              <strong>Note:</strong> Replace the URL with your repository link
+            </div>
+          </div>
+        </div>
+
+        <div class="command-section">
+          <h2>📝 Daily Commands</h2>
+          <div class="command-card">
+            <span class="difficulty beginner">Beginner</span>
+            <code>git status</code>
+            <button class="copy-button">Copy</button>
+            <p>Check which files are modified/staged</p>
+          </div>
+          <div class="command-card">
+            <span class="difficulty beginner">Beginner</span>
+            <code>git add .</code>
+            <button class="copy-button">Copy</button>
+            <p>Stage all changes for commit</p>
+            <div class="error-notes">
+              <strong>Common Error:</strong> Make sure you're in the right directory
+            </div>
+          </div>
+          <div class="command-card">
+            <span class="difficulty beginner">Beginner</span>
+            <code>git commit -m "descriptive message"</code>
+            <button class="copy-button">Copy</button>
+            <p>Save your changes with a message</p>
+            <div class="tip-notes">
+              <strong>Tip:</strong> Write clear, descriptive commit messages
+            </div>
+          </div>
+        </div>
+
+        <div class="command-section">
+          <h2>🌿 Branch Management</h2>
+          <div class="command-card">
+            <span class="difficulty intermediate">Intermediate</span>
+            <code>git checkout -b feature-name</code>
+            <button class="copy-button">Copy</button>
+            <p>Create and switch to a new branch</p>
+            <div class="tip-notes">
+              <strong>Naming Convention:</strong> Use feature-*, bugfix-*, etc.
+            </div>
+          </div>
+          <div class="command-card">
+            <span class="difficulty intermediate">Intermediate</span>
+            <code>git merge main</code>
+            <button class="copy-button">Copy</button>
+            <p>Merge main branch into your current branch</p>
+            <div class="error-notes"></div>
+              <strong>If Conflicts Occur:</strong> Resolve files marked with >>>> and <<<<
+            </div>
+          </div>
+        </div>
+
+        <div class="command-section">
+          <h2>🔄 Remote Operations</h2>
+          <div class="command-card">
+            <span class="difficulty intermediate">Intermediate</span>
+            <code>git pull origin main</code>
+            <button class="copy-button">Copy</button>
+            <p>Get latest changes from remote main branch</p>
+            <div class="error-notes">
+              <strong>If Error:</strong> Commit or stash local changes first
+            </div>
+          </div>
+          <div class="command-card">
+            <span class="difficulty intermediate">Intermediate</span>
+            <code>git push origin branch-name</code>
+            <button class="copy-button">Copy</button>
+            <p>Push your branch to remote</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-section">
+        <h2>📚 Workshop Workflow</h2>
+        <div class="workflow-steps">
+          <div class="step">
+            <h3>1. Setup</h3>
+            <p>Fork & Clone Repository</p>
+            <code>git clone [URL]</code>
+          </div>
+          <div class="step">
+            <h3>2. Branch</h3>
+            <p>Create your branch</p>
+            <code>git checkout -b profile-[name]</code>
+          </div>
+          <div class="step">
+            <h3>3. Changes</h3>
+            <p>Make your changes</p>
+            <code>git add .</code>
+            <code>git commit -m "message"</code>
+          </div>
+          <div class="step">
+            <h3>4. Update</h3>
+            <p>Get latest changes</p>
+            <code>git pull origin main</code>
+          </div>
+          <div class="step">
+            <h3>5. Push</h3>
+            <p>Push your changes</p>
+            <code>git push origin profile-[name]</code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll('.copy-button').forEach(button => {
+        button.addEventListener('click', () => {
+          const code = button.previousElementSibling.textContent;
+          navigator.clipboard.writeText(code);
+          button.textContent = 'Copied!';
+          setTimeout(() => {
+            button.textContent = 'Copy';
+          }, 2000);
+        });
+      });
+    </script>
+  </body>
+</html>
